@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://djqer1mhyytr3"]
+
+[ext_resource type="Texture2D" uid="uid://dd23d1kdvi75s" path="res://Node.png" id="1_pqh1j"]
+[ext_resource type="Script" path="res://GraphVertex.cs" id="2_ikhf8"]
+[ext_resource type="FontFile" uid="uid://dek0ls0xsp1n2" path="res://cayetano.bold.ttf" id="3_e8tne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7pcyh"]
+line_spacing = 0.0
+font = ExtResource("3_e8tne")
+font_size = 8
+font_color = Color(0, 1, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0p6l5"]
+line_spacing = 0.0
+font = ExtResource("3_e8tne")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="GraphVertex" type="Sprite2D" node_paths=PackedStringArray("_infoLabel", "_indexLabel")]
+texture = ExtResource("1_pqh1j")
+script = ExtResource("2_ikhf8")
+_infoLabel = NodePath("InfoLabel")
+_indexLabel = NodePath("IndexLabel")
+
+[node name="InfoLabel" type="Label" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = -18.0
+offset_right = 9.0
+offset_bottom = -6.0
+text = "0"
+label_settings = SubResource("LabelSettings_7pcyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IndexLabel" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 7.0
+offset_bottom = 7.0
+label_settings = SubResource("LabelSettings_0p6l5")
+horizontal_alignment = 1
+vertical_alignment = 1

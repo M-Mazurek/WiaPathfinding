@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://5by1lotob3uh"]
+
+[ext_resource type="Script" path="res://FloydWarshallAlgorithm.cs" id="1_f5fp8"]
+[ext_resource type="PackedScene" uid="uid://djqer1mhyytr3" path="res://GraphVertex.tscn" id="2_ed0re"]
+[ext_resource type="FontFile" uid="uid://dek0ls0xsp1n2" path="res://cayetano.bold.ttf" id="3_p4lqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q2grn"]
+font = ExtResource("3_p4lqu")
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FloydWarshallAlgorithm" type="Node2D" node_paths=PackedStringArray("_stepsLayer", "_graphPreview", "_bottomPanel", "_matrixLabel", "_gridA", "_gridB", "_verticesRoot", "_edgesRoot")]
+script = ExtResource("1_f5fp8")
+_stepsLayer = NodePath("StepsLayer")
+_graphPreview = NodePath("StepsLayer/Preview")
+_bottomPanel = NodePath("StepsLayer/Bottom")
+_matrixLabel = NodePath("StepsLayer/Label")
+_gridA = NodePath("StepsLayer/Bottom/CenterContainerA/GridA")
+_gridB = NodePath("StepsLayer/Bottom/CenterContainerB/GridB")
+_verticesRoot = NodePath("Vertices")
+_edgesRoot = NodePath("Edges")
+
+[node name="Vertices" type="Node2D" parent="."]
+
+[node name="0" parent="Vertices" instance=ExtResource("2_ed0re")]
+position = Vector2(-89, 76)
+ConnectedTo = PackedInt32Array(1, 3)
+
+[node name="1" parent="Vertices" instance=ExtResource("2_ed0re")]
+position = Vector2(100, 94)
+ConnectedTo = PackedInt32Array(2, 4)
+
+[node name="2" parent="Vertices" instance=ExtResource("2_ed0re")]
+ConnectedTo = PackedInt32Array(4, 3, 0)
+
+[node name="3" parent="Vertices" instance=ExtResource("2_ed0re")]
+position = Vector2(-51, -78)
+ConnectedTo = PackedInt32Array(4)
+
+[node name="4" parent="Vertices" instance=ExtResource("2_ed0re")]
+position = Vector2(70, -103)
+ConnectedTo = PackedInt32Array(2)
+
+[node name="Edges" type="Node2D" parent="."]
+
+[node name="StepsLayer" type="CanvasLayer" parent="."]
+
+[node name="Preview" type="TextureRect" parent="StepsLayer"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="StepsLayer"]
+offset_left = -214.0
+offset_top = 832.0
+offset_right = -166.0
+offset_bottom = 922.0
+text = "111"
+label_settings = SubResource("LabelSettings_q2grn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bottom" type="ColorRect" parent="StepsLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -512.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.184314, 0.309804, 0.309804, 1)
+
+[node name="CenterContainerA" type="CenterContainer" parent="StepsLayer/Bottom"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="GridA" type="GridContainer" parent="StepsLayer/Bottom/CenterContainerA"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+
+[node name="CenterContainerB" type="CenterContainer" parent="StepsLayer/Bottom"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="GridB" type="GridContainer" parent="StepsLayer/Bottom/CenterContainerB"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16

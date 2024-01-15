@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://wkvl4j1kofdv"]
+
+[ext_resource type="Script" path="res://GraphEdge.cs" id="1_585w1"]
+[ext_resource type="Texture2D" uid="uid://cawo3j6uk8b01" path="res://Edge.png" id="1_iydqm"]
+[ext_resource type="Texture2D" uid="uid://dfm5cxmwp5dqa" path="res://Arrow.png" id="2_k44wp"]
+[ext_resource type="Texture2D" uid="uid://d33jwjo1ckohb" path="res://Cap.png" id="4_y0nmn"]
+[ext_resource type="FontFile" uid="uid://dek0ls0xsp1n2" path="res://cayetano.bold.ttf" id="5_a82ji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vyl6"]
+line_spacing = 0.0
+font = ExtResource("5_a82ji")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="GraphEdge" type="Line2D" node_paths=PackedStringArray("_arrowA", "_arrowB", "_weightLabel")]
+z_index = -1
+points = PackedVector2Array(0, 0, 50, 0)
+width = 4.0
+texture = ExtResource("1_iydqm")
+texture_mode = 1
+script = ExtResource("1_585w1")
+_arrowA = NodePath("ArrowA")
+_arrowB = NodePath("ArrowB")
+_weightLabel = NodePath("WeightLabel")
+
+[node name="ArrowA" type="Sprite2D" parent="."]
+position = Vector2(14, 0)
+texture = ExtResource("2_k44wp")
+
+[node name="ArrowB" type="Sprite2D" parent="."]
+texture = ExtResource("4_y0nmn")
+
+[node name="WeightLabel" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -18.0
+offset_right = 9.0
+offset_bottom = -6.0
+text = "0"
+label_settings = SubResource("LabelSettings_4vyl6")

@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://biwmcqo2po0hi"]
+
+[ext_resource type="FontFile" uid="uid://dek0ls0xsp1n2" path="res://cayetano.bold.ttf" id="2_d42re"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfcwb"]
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ej85"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.439216, 0.501961, 0.564706, 0.901961)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_462s3"]
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msaq6"]
+
+[resource]
+default_font = ExtResource("2_d42re")
+default_font_size = 24
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_vfcwb")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2ej85")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_462s3")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_vfcwb")
+TooltipPanel/styles/panel = SubResource("StyleBoxEmpty_msaq6")

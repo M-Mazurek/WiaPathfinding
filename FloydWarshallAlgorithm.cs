@@ -47,22 +47,23 @@ public partial class FloydWarshallAlgorithm : GraphAlgorithm
         CreateGrid(true);
         CreateGrid(false);
 
-        for (int i = 0; i < Vertices.Length; i++)
+        for (int i = 0; i <= Vertices.Length; i++)
         {
             FadeGridIn(_gridA);
+            if (i == Vertices.Length)
+                break;
+            
             await ToSignal(this, GraphAlgorithm.SignalName.SimulateNextStep);
             CopyMatrix(true, i);
             _gridB.GetChild<Label>(0).Text = $"k={i+1}";
-            PerformNextStep(i);
-
-            if (i == Vertices.Length - 1)
-                break;
             
+            PerformNextStep(i);
             await ToSignal(this, GraphAlgorithm.SignalName.SimulateNextStep);
             _gridA.Modulate = new Color(1f, 1f, 1f, 0f);
             _gridB.Modulate = new Color(1f, 1f, 1f, 0f);
             await Task.Delay(400);
             CopyMatrix(false, i);
+            _gridA.GetChild<Label>(0).Text = $"k={i+1}";
         }
     }
 
@@ -172,13 +173,16 @@ public partial class FloydWarshallAlgorithm : GraphAlgorithm
                 label.Text = weight == int.MaxValue ? "∞" : weight.ToString();
             }
         }
-        
-        for (int i = 0; i < Vertices.Length; i++)
+
+        if (fromAToB)
         {
-            HighlightLabelIteration(gridTo.GetNode<Label>($"{i} {highlightIndex}"));
-            HighlightLabelIteration(gridTo.GetNode<Label>($"{highlightIndex} {i}"));
+            for (int i = 0; i < Vertices.Length; i++)
+            {
+                HighlightLabelIteration(gridTo.GetNode<Label>($"{i} {highlightIndex}"));
+                HighlightLabelIteration(gridTo.GetNode<Label>($"{highlightIndex} {i}"));
+            }
         }
-        
+
         FadeGridIn(gridTo);
     }
     

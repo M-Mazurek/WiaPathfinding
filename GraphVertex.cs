@@ -20,4 +20,9 @@ public partial class GraphVertex : Sprite2D
             __index = value;
         }
     }
+
+    public string Info
+    {
+        set => _infoLabel.Text = value;
+    }
 }

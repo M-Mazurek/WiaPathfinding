@@ -37,7 +37,6 @@ public abstract partial class GraphAlgorithm : Node2D
         for (int i = 0; i < Vertices.Length; i++)
         {
             Vertices[i].Index = i;
-            GD.Print(i);
         }
         DrawEdges();
     }

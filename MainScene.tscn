@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7ds7dp7wk6nq"]
 
 [ext_resource type="Script" path="res://MainScene.cs" id="1_76ynl"]
-[ext_resource type="PackedScene" uid="uid://5by1lotob3uh" path="res://FloydWarshallAlgorithm.tscn" id="2_fr66k"]
+[ext_resource type="PackedScene" uid="uid://br8yywiilx1g2" path="res://DijkstrasAlgorithm.tscn" id="2_e3fwm"]
 
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("MainCamera")]
 script = ExtResource("1_76ynl")
 MainCamera = NodePath("Camera2D")
 
-[node name="FloydWarshallAlgorithm" parent="." instance=ExtResource("2_fr66k")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="DijkstrasAlgorithm" parent="." instance=ExtResource("2_e3fwm")]

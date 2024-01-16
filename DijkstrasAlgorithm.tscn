@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://br8yywiilx1g2"]
+
+[ext_resource type="Script" path="res://DijkstrasAlgorithm.cs" id="1_i1qqe"]
+[ext_resource type="PackedScene" uid="uid://djqer1mhyytr3" path="res://GraphVertex.tscn" id="2_g8403"]
+
+[node name="DijkstrasAlgorithm" type="Node2D" node_paths=PackedStringArray("_verticesRoot", "_edgesRoot")]
+script = ExtResource("1_i1qqe")
+_target = 4
+_verticesRoot = NodePath("Vertices")
+_edgesRoot = NodePath("Edges")
+
+[node name="Vertices" type="Node2D" parent="."]
+
+[node name="0" parent="Vertices" instance=ExtResource("2_g8403")]
+position = Vector2(-89, 76)
+ConnectedTo = PackedInt32Array(1, 3)
+
+[node name="1" parent="Vertices" instance=ExtResource("2_g8403")]
+position = Vector2(100, 94)
+ConnectedTo = PackedInt32Array(2, 4)
+
+[node name="2" parent="Vertices" instance=ExtResource("2_g8403")]
+ConnectedTo = PackedInt32Array(4, 3, 0)
+
+[node name="3" parent="Vertices" instance=ExtResource("2_g8403")]
+position = Vector2(-51, -78)
+ConnectedTo = PackedInt32Array(4)
+
+[node name="4" parent="Vertices" instance=ExtResource("2_g8403")]
+position = Vector2(70, -103)
+ConnectedTo = PackedInt32Array(2)
+
+[node name="Edges" type="Node2D" parent="."]

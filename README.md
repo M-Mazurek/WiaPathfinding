@@ -2,7 +2,7 @@
 
 Algorithms included:
 - Bellman-Ford Algorithm
-- Dijkstras Algorithm
+- Dijkstra's Algorithm
 - Floyd-Warshall Algorithm
 
 Built on Godot Engine.
